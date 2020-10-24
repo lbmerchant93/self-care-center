@@ -17,6 +17,10 @@ body{
   background-attachment: fixed;
 }
 
+.hidden {
+  display: none!important;
+}
+
 .main-screen-title {
   color: #ffffff;
   margin: 65px;
@@ -59,11 +63,17 @@ input[type="radio"] {
   margin-bottom: 5px;
 }
 
-.image-logo {
+.display-field {
   display: flex;
   background-color: #ffffff;
   margin: 100px 200px 200px 200px;
   border-radius: 6px;
+}
+
+.chosen-message{
+  align-content: center;
+  padding-top: 55px;
+  padding-bottom: 55px;
 }
 
 .logo {
