@@ -51,35 +51,36 @@ recieveMessageButton.addEventListener("click", displayRandomMessage);
 //👉🏼section for functions and event handlers 👈🏼:
 
 //randomize the messages:
-function randomizeMessages(array) {
+function getRandomMessage(array) {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-//recieve randomized affirmation:
-var randomAffirmation = randomizeMessages(affirmations);
-//recieve randomized mantra:
-var randomMantra = randomizeMessages(mantras);
-
-//add hide logo to class in order to hide and then show message
-function hideLogo() {
-  logo.classList.add("hidden");
-};
-function chooseMessage() {
+//recieve randomized affirmation or mantra:
+function retrieveMessage() {
+  var randomAffirmation = getRandomMessage(affirmations);
+  var randomMantra = getRandomMessage(mantras);
   if(affirmationMessageSelection.checked) {
     return randomAffirmation;
   } else if(mantraMessageSelection.checked) {
     return randomMantra;
   };
 };
+
+//add and remove hidden to elements
+function changeDisplayedElements(hide,show) {
+  hide.classList.add("hidden");
+  show.classList.remove("hidden");
+};
+
 function showMessage() {
   chosenMessage.classList.remove("hidden");
-  var messageShown = chooseMessage();
+  var messageShown = retrieveMessage();
   chosenMessage.innerHTML = "";
   chosenMessage.innerHTML += `${messageShown}`;
 }
 //display message and hide logo:
 function displayRandomMessage() {
-  hideLogo();
+  changeDisplayedElements(logo, chosenMessage);
   showMessage();
 };
 

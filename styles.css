@@ -39,11 +39,10 @@ body{
 
 .both-radios {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 17px;
-  padding-left: 15px;
+  max-height: 60px;
+  min-height: 60px;
+  justify-content: center;
+  align-content: center;
 }
 
 input[type="radio"] {
@@ -59,7 +58,10 @@ input[type="radio"] {
   text-align: center;
   background-color: #134d71;
   border-radius: 5px;
-  padding: 3px 25px 2px 25px;
+  max-height: 25px;
+  min-height: 25px;
+  max-width: 160px;
+  min-width: 160px;
   margin-bottom: 5px;
 }
 
@@ -68,19 +70,18 @@ input[type="radio"] {
   background-color: #ffffff;
   margin: 100px 200px 200px 200px;
   border-radius: 6px;
+  max-height: 125px;
+  min-height: 125px
 }
 
 .chosen-message{
   align-content: center;
-  padding-top: 55px;
-  padding-bottom: 55px;
 }
 
 .logo {
-  height: 80px;
-  width: 80px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  max-height: 80px;
+  max-width: 80px;
+  align-content: center;
 }
 
 /* font-family: 'Quicksand', sans-serif;
