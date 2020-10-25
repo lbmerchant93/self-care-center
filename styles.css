@@ -76,7 +76,7 @@ transform: scale(1.2);}
   min-height: 125px
 }
 
-.loader-wrapper {
+.loader {
   align-content: center;
   border: 15px solid #ffffff;
   border-radius: 50%;

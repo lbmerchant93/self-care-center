@@ -35,14 +35,13 @@ var mantras = [
 
 
 //👀section for querySelectors 👀:
-var bodyForBackground = document.querySelector("body");
+var bodyForBackgroundChange = document.querySelector("body");
 var affirmationMessageSelection = document.querySelector("#affirmation");
 var mantraMessageSelection = document.querySelector("#mantra");
 var recieveMessageButton = document.querySelector(".recieve-message");
 var chosenMessage = document.querySelector(".chosen-message");
 var logo = document.querySelector(".logo");
-var displayField = document.querySelector(".display-field");
-var loaderWrapper = document.querySelector(".loader-wrapper");
+var loader = document.querySelector(".loader");
 
 
 //👂🏼section for eventListeners👂🏼:
@@ -57,16 +56,19 @@ function getRandomMessage(array) {
   return array[Math.floor(Math.random() * array.length)];
 };
 
+function showHide(show, hide) {
+  show.classList.remove("hidden");
+  hide.classList.add("hidden");
+}
+
 //recieve randomized affirmation or mantra:
 function retrieveMessage() {
-  var randomAffirmation = getRandomMessage(affirmations);
-  var randomMantra = getRandomMessage(mantras);
   if(affirmationMessageSelection.checked) {
-    bodyForBackground.style.background = "linear-gradient(#0575E6, #00F260)";
-    return randomAffirmation;
+    bodyForBackgroundChange.style.background = "linear-gradient(#0575E6, #00F260)";
+    return getRandomMessage(affirmations);
   } else if(mantraMessageSelection.checked) {
-    bodyForBackground.style.background = "linear-gradient(#108dc7, #ef8e38)";
-    return randomMantra;
+    bodyForBackgroundChange.style.background = "linear-gradient(#108dc7, #ef8e38)";
+    return getRandomMessage(mantras);
   } else {
     return "Please select a message type!!";
   }
@@ -75,8 +77,7 @@ function retrieveMessage() {
 //add and remove hidden to elements
 
 function showMessage() {
-  loaderWrapper.classList.add("hidden");
-  chosenMessage.classList.remove("hidden");
+  showHide(chosenMessage, loader);
   var messageShown = retrieveMessage();
   chosenMessage.innerHTML = "";
   chosenMessage.innerHTML += `${messageShown}`;
@@ -85,9 +86,7 @@ function showMessage() {
 
 //display message and hide logo, loading animation when recieve message button is clicked:
 function displayRandomMessage() {
-  loaderWrapper.classList.remove("hidden");
-  logo.classList.add("hidden");
-  chosenMessage.classList.add("hidden");
+  showHide(loader, logo);
   var timer;
   timer = setTimeout(showMessage, 1500);
 }
