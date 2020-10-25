@@ -87,7 +87,7 @@ function displayRandomMessage() {
   logo.classList.add("hidden");
   chosenMessage.classList.add("hidden");
   var timer;
-  timer = setTimeout(showMessage, 3000);
+  timer = setTimeout(showMessage, 2000);
 }
 
 

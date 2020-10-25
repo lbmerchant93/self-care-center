@@ -64,6 +64,8 @@ input[type="radio"] {
   min-width: 160px;
   margin-bottom: 5px;
 }
+button:hover {background-color: #0044CD;
+transform: scale(1.2);}
 
 .display-field {
   display: flex;
@@ -91,6 +93,12 @@ input[type="radio"] {
 
 .chosen-message{
   align-content: center;
+  animation: fadeIn ease 5s;
+}
+
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
 }
 
 .logo {
