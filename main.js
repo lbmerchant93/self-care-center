@@ -42,11 +42,13 @@ var recieveMessageButton = document.querySelector(".recieve-message");
 var chosenMessage = document.querySelector(".chosen-message");
 var logo = document.querySelector(".logo");
 var displayField = document.querySelector(".display-field");
+var loaderWrapper = document.querySelector(".loader-wrapper");
 
 
 //👂🏼section for eventListeners👂🏼:
 
 recieveMessageButton.addEventListener("click", displayRandomMessage);
+
 
 //👉🏼section for functions and event handlers 👈🏼:
 
@@ -63,26 +65,30 @@ function retrieveMessage() {
     return randomAffirmation;
   } else if(mantraMessageSelection.checked) {
     return randomMantra;
-  };
+  } else {
+    return "Please select a message type!!";
+  }
 };
 
 //add and remove hidden to elements
-function changeDisplayedElements(hide,show) {
-  hide.classList.add("hidden");
-  show.classList.remove("hidden");
-};
 
 function showMessage() {
+  loaderWrapper.classList.add("hidden");
   chosenMessage.classList.remove("hidden");
   var messageShown = retrieveMessage();
   chosenMessage.innerHTML = "";
   chosenMessage.innerHTML += `${messageShown}`;
 }
-//display message and hide logo:
+
+
+//display message and hide logo, loading animation when recieve message button is clicked:
 function displayRandomMessage() {
-  changeDisplayedElements(logo, chosenMessage);
-  showMessage();
-};
+  loaderWrapper.classList.remove("hidden");
+  logo.classList.add("hidden");
+  chosenMessage.classList.add("hidden");
+  var timer;
+  timer = setTimeout(showMessage, 3000);
+}
 
 
 

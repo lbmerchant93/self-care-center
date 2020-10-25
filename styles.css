@@ -18,7 +18,7 @@ body{
 }
 
 .hidden {
-  display: none!important;
+  display: none;
 }
 
 .main-screen-title {
@@ -72,6 +72,21 @@ input[type="radio"] {
   border-radius: 6px;
   max-height: 125px;
   min-height: 125px
+}
+
+.loader-wrapper {
+  align-content: center;
+  border: 15px solid #ffffff;
+  border-radius: 50%;
+  border-top: 15px solid #78a7c6;
+  width: 75px;
+  height: 75px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .chosen-message{
