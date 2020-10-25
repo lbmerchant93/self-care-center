@@ -35,7 +35,7 @@ var mantras = [
 
 
 //👀section for querySelectors 👀:
-
+var bodyForBackground = document.querySelector("body");
 var affirmationMessageSelection = document.querySelector("#affirmation");
 var mantraMessageSelection = document.querySelector("#mantra");
 var recieveMessageButton = document.querySelector(".recieve-message");
@@ -62,8 +62,10 @@ function retrieveMessage() {
   var randomAffirmation = getRandomMessage(affirmations);
   var randomMantra = getRandomMessage(mantras);
   if(affirmationMessageSelection.checked) {
+    bodyForBackground.style.background = "linear-gradient(#0575E6, #00F260)";
     return randomAffirmation;
   } else if(mantraMessageSelection.checked) {
+    bodyForBackground.style.background = "linear-gradient(#108dc7, #ef8e38)";
     return randomMantra;
   } else {
     return "Please select a message type!!";
@@ -87,7 +89,7 @@ function displayRandomMessage() {
   logo.classList.add("hidden");
   chosenMessage.classList.add("hidden");
   var timer;
-  timer = setTimeout(showMessage, 2000);
+  timer = setTimeout(showMessage, 1500);
 }
 
 

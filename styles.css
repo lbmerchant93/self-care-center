@@ -4,17 +4,17 @@
   font-family: 'Quicksand', sans-serif;
   text-align: center;
   margin: auto;
+
 }
 
-html {
-  height: 100%;
+html,
+body, {
+  min-height: 100%;
+  margin: 0;
 }
 
 body{
   background: linear-gradient(#134d71, #78a7c6, #f7e4bf);
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .hidden {
