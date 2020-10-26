@@ -44,18 +44,18 @@ var chosenMessage = document.querySelector(".chosen-message");
 var logo = document.querySelector(".logo");
 var loader = document.querySelector(".loader");
 var clearMessage =document.querySelector(".clear-message");
-// var favoriteButton = document.querySelector(".favorite-message");
-// var viewFavoritesButton = document.querySelector(".view-favorites");
-// var mainScreen = document.querySelector(".main-screen");
-// var favoritesScreen = document.querySelector(".favorites-screen");
-// var displayFavorites = document.querySelector(".favorites-array");
+var favoriteButton = document.querySelector(".favorite-message");
+var viewFavoritesButton = document.querySelector(".view-favorites");
+var mainScreen = document.querySelector(".main-screen");
+var favoritesScreen = document.querySelector(".favorites-screen");
+var displayFavorites = document.querySelector(".favorites-array");
 
 //👂🏼section for eventListeners👂🏼:
 
 recieveMessageButton.addEventListener("click", displayRandomMessage);
 clearMessage.addEventListener("click", clearDisplay);
-// favoriteButton.addEventListener("click", addToFavorites);
-// viewFavoritesButton.addEventListener("click", viewFavoritesScreen);
+favoriteButton.addEventListener("click", addToFavorites);
+viewFavoritesButton.addEventListener("click", viewFavoritesScreen);
 
 
 //👉🏼section for functions and event handlers 👈🏼:
@@ -99,7 +99,10 @@ function showMessage() {
   chosenMessage.innerHTML = "";
   chosenMessage.innerHTML += `${currentMessage}`;
   show(clearMessage);
-  // show(favoriteButton);
+  show(favoriteButton);
+  if(favorites.length > 0) {
+    show(viewFavoritesButton);
+  };
 };
 
 
@@ -107,7 +110,9 @@ function showMessage() {
 function displayRandomMessage() {
   showHide(loader, logo);
   hide(chosenMessage);
-  // hide(favoriteButton);
+  hide(favoriteButton);
+  hide(clearMessage);
+  hide(viewFavoritesButton);
   var timer;
   timer = setTimeout(showMessage, 1500);
 };
@@ -115,22 +120,24 @@ function displayRandomMessage() {
 function clearDisplay() {
   showHide(logo,chosenMessage);
   hide(clearMessage);
+  hide(favoriteButton);
+  hide(viewFavoritesButton);
 }
 
-//add quote to favorite array
-// function addToFavorites() {
-//   if (!favorites.includes(currentMessage)) {
-//     favorites.push(currentMessage);
-//     show(viewFavoritesButton);
-//   };
-// };
+// add quote to favorite array
+function addToFavorites() {
+  if (!favorites.includes(currentMessage)) {
+    favorites.push(currentMessage);
+    show(viewFavoritesButton);
+  };
+};
 
 // view favorites
-// function viewFavoritesScreen() {
-//   showHide(favoritesScreen, mainScreen);
-//   // bodyForBackgroundChange.style.background = "linear-gradient(#108dc7, #ef8e38)";
-//   displayFavorites.innerText = favorites;
-// };
+function viewFavoritesScreen() {
+  showHide(favoritesScreen, mainScreen);
+  // bodyForBackgroundChange.style.background = "linear-gradient(#108dc7, #ef8e38)";
+  displayFavorites.innerText = favorites;
+};
 
 
 
