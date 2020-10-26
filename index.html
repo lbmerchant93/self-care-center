@@ -8,30 +8,38 @@
 </head>
 
 <body class="self-care-center">
-  <h2 class="main-screen-title" id="main-screen-title">✨ Self Care Center ✨</h2>
-  <h3 class="which-message" id="which-message">Which type of message?</h3>
-  <section class="choose-message-type" id="choose-message-type">
-    <article class="both-radios">
-      <span class="radio-one">
-        <label id="affirmation-label" for="affirmation">
-          <input type="radio" name="message-type" class="message-type" id="affirmation" /><i>affirmation</i>
-        </label>
-      </span>
-      <span class="radio-two">
-        <label id="mantra-label" for="mantra">
-          <input type="radio" name="message-type" class="message-type" id="mantra" /><i>mantra</i>
-        </label>
-      </span>
-    </article>
-    <article class="recieve-message-button">
-      <button class="recieve-message" id="recieve-message">Recieve Message</button>
-    </article>
+  <section class="main-screen">
+    <h2 class="main-screen-title" id="main-screen-title">✨ Self Care Center ✨</h2>
+    <h3 class="which-message" id="which-message">Which type of message?</h3>
+    <section class="choose-message-type" id="choose-message-type">
+      <article class="both-radios">
+        <span class="radio-one">
+          <label id="affirmation-label" for="affirmation">
+            <input type="radio" name="message-type" class="message-type" id="affirmation" /><i>affirmation</i>
+          </label>
+        </span>
+        <span class="radio-two">
+          <label id="mantra-label" for="mantra">
+            <input type="radio" name="message-type" class="message-type" id="mantra" /><i>mantra</i>
+          </label>
+        </span>
+      </article>
+      <article class="recieve-message-button">
+        <button class="recieve-message" id="recieve-message">Recieve Message</button>
+      </article>
+    </section>
+    <section class="display-field">
+      <article class="loader hidden"></article>
+      <article class="chosen-message hidden"></article>
+      <img class="logo" src="https://raw.githubusercontent.com/lbmerchant93/self-care-center/32166827cf5a2f4726310d20ee5cfb88bcb99680/assets/meditate.svg" alt="logo">
+      <!-- <button class="favorite-message hidden">♥️</button>
+      <button class="view-favorites hidden">🥰View Favs🥰</button> -->
+    </section>
   </section>
-  <section class="display-field">
-    <div class="loader hidden"></div>
-    <article class="chosen-message hidden"></article>
-    <img class="logo" src="https://raw.githubusercontent.com/lbmerchant93/self-care-center/32166827cf5a2f4726310d20ee5cfb88bcb99680/assets/meditate.svg" alt="logo">
-    <script type="text/javascript" src="main.js"></script>
+  <!-- <section class="favorites-screen hidden">
+  <p class="favorites-array"></p>
+</section> -->
+  <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>
