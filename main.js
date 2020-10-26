@@ -32,7 +32,8 @@ var mantras = [
   "Onward and upward.",
   "I am the sky, the rest is weather.",
 ];
-
+var favorites = [];
+var currentMessage;
 
 //👀section for querySelectors 👀:
 var bodyForBackgroundChange = document.querySelector("body");
@@ -42,11 +43,17 @@ var recieveMessageButton = document.querySelector(".recieve-message");
 var chosenMessage = document.querySelector(".chosen-message");
 var logo = document.querySelector(".logo");
 var loader = document.querySelector(".loader");
-
+// var favoriteButton = document.querySelector(".favorite-message");
+// var viewFavoritesButton = document.querySelector(".view-favorites");
+// var mainScreen = document.querySelector(".main-screen");
+// var favoritesScreen = document.querySelector(".favorites-screen");
+// var displayFavorites = document.querySelector(".favorites-array");
 
 //👂🏼section for eventListeners👂🏼:
 
 recieveMessageButton.addEventListener("click", displayRandomMessage);
+// favoriteButton.addEventListener("click", addToFavorites);
+// viewFavoritesButton.addEventListener("click", viewFavoritesScreen);
 
 
 //👉🏼section for functions and event handlers 👈🏼:
@@ -59,48 +66,63 @@ function getRandomMessage(array) {
 function showHide(show, hide) {
   show.classList.remove("hidden");
   hide.classList.add("hidden");
-}
+};
+
+function hide(hide) {
+  hide.classList.add("hidden");
+};
+
+function show(show) {
+  show.classList.remove("hidden");
+};
 
 //recieve randomized affirmation or mantra:
 function retrieveMessage() {
-  if(affirmationMessageSelection.checked) {
+  if (affirmationMessageSelection.checked) {
     bodyForBackgroundChange.style.background = "linear-gradient(#0575E6, #00F260)";
     return getRandomMessage(affirmations);
-  } else if(mantraMessageSelection.checked) {
+  } else if (mantraMessageSelection.checked) {
     bodyForBackgroundChange.style.background = "linear-gradient(#108dc7, #ef8e38)";
     return getRandomMessage(mantras);
   } else {
     return "Please select a message type!!";
-  }
+  };
 };
 
 //add and remove hidden to elements
 
 function showMessage() {
   showHide(chosenMessage, loader);
-  var messageShown = retrieveMessage();
+  currentMessage = retrieveMessage();
   chosenMessage.innerHTML = "";
-  chosenMessage.innerHTML += `${messageShown}`;
-}
+  chosenMessage.innerHTML += `${currentMessage}`;
+  // show(favoriteButton);
+};
 
 
-//display message and hide logo, loading animation when recieve message button is clicked:
+//display message and favorite button, hide logo, loading animation when recieve message button is clicked:
 function displayRandomMessage() {
   showHide(loader, logo);
+  hide(chosenMessage);
+  // hide(favoriteButton);
   var timer;
   timer = setTimeout(showMessage, 1500);
-}
+};
 
+//add quote to favorite array
+// function addToFavorites() {
+//   if (!favorites.includes(currentMessage)) {
+//     favorites.push(currentMessage);
+//     show(viewFavoritesButton);
+//   };
+// };
 
-
-
-
-
-
-
-
-
-
+// view favorites
+// function viewFavoritesScreen() {
+//   showHide(favoritesScreen, mainScreen);
+//   // bodyForBackgroundChange.style.background = "linear-gradient(#108dc7, #ef8e38)";
+//   displayFavorites.innerText = favorites;
+// };
 
 
 
