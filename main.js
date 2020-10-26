@@ -43,6 +43,7 @@ var recieveMessageButton = document.querySelector(".recieve-message");
 var chosenMessage = document.querySelector(".chosen-message");
 var logo = document.querySelector(".logo");
 var loader = document.querySelector(".loader");
+var clearMessage =document.querySelector(".clear-message");
 // var favoriteButton = document.querySelector(".favorite-message");
 // var viewFavoritesButton = document.querySelector(".view-favorites");
 // var mainScreen = document.querySelector(".main-screen");
@@ -52,6 +53,7 @@ var loader = document.querySelector(".loader");
 //👂🏼section for eventListeners👂🏼:
 
 recieveMessageButton.addEventListener("click", displayRandomMessage);
+clearMessage.addEventListener("click", clearDisplay);
 // favoriteButton.addEventListener("click", addToFavorites);
 // viewFavoritesButton.addEventListener("click", viewFavoritesScreen);
 
@@ -96,6 +98,7 @@ function showMessage() {
   currentMessage = retrieveMessage();
   chosenMessage.innerHTML = "";
   chosenMessage.innerHTML += `${currentMessage}`;
+  show(clearMessage);
   // show(favoriteButton);
 };
 
@@ -108,6 +111,11 @@ function displayRandomMessage() {
   var timer;
   timer = setTimeout(showMessage, 1500);
 };
+
+function clearDisplay() {
+  showHide(logo,chosenMessage);
+  hide(clearMessage);
+}
 
 //add quote to favorite array
 // function addToFavorites() {
